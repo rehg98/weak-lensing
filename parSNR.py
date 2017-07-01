@@ -67,7 +67,7 @@ def toPowspec(image_num):
 
 image_range = np.arange(1, 1024)
 
-from emcee.utils import MPIPool
+from schwimmbad import MPIPool
 pool = MPIPool()
 if not pool.is_master():
 	pool.wait()
