@@ -9,5 +9,6 @@
 #SBATCH --mail-user=rgolant@princeton.edu
 module load openmpi
 module load intel
+module load anaconda3/4.3.0
 srun -n 28 python parSNR.py
 wait
