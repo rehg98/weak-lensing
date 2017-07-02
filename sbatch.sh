@@ -7,10 +7,7 @@
 #SBATCH --error=SNRerr.err
 #SBATCH --mail-type=all
 #SBATCH --mail-user=rgolant@princeton.edu 
-
 module load openmpi
 module load intel
-
-
 srun -n 28 python parSNR.py 
 wait
