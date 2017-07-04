@@ -1,164 +1,54 @@
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-parSNR.py:26: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:27: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-Traceback (most recent call last):
-  File "parSNR.py", line 73, in <module>
-    sys.exit(0)
-NameError: name 'sys' is not defined
-srun: error: perseus-r5c3n3: tasks 1-27: Exited with exit code 1
-srun: Terminating job step 85969.0
