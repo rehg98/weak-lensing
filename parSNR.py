@@ -2,6 +2,7 @@ from astropy.io import fits
 import numpy as np
 import scipy.ndimage
 from scipy import fftpack
+import sys
 
 def power1D(image, num_bins):
     
