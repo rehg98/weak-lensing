@@ -47,7 +47,6 @@ def SNR(powerspecs):
     #Calculate Signal-to-Noise ratio given a set of powerspectra 
     
     powermean = np.mat(np.mean(powerspecs, axis = 0))
-    powermat = np.vstack((powerspecs))
     covar = np.mat(np.cov(powerspecs, rowvar = 0))
     
     SNRsquare = powermean * (covar.I * powermean.T)
@@ -64,7 +63,7 @@ def toPowspec(image_num):
 	powspec = PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50)[1]
 	return powspec
 
-image_range = np.arange(1, 1024)
+image_range = np.arange(1, 1025)
 
 from schwimmbad import MPIPool
 pool = MPIPool()
