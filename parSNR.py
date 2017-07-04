@@ -61,7 +61,7 @@ def toPowspec(image_num):
 	image = scipy.ndimage.filters.gaussian_filter(image, 9.75)
 	F = fftpack.fftshift(fftpack.fft2(image))
 	psd2D = np.abs(F)**2
-	powspec = PowerSpectrum(psd2D_1, sizedeg = 12.25, size = 2048, bins = 50)[1]
+	powspec = PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50)[1]
 	return powspec
 
 image_range = np.arange(1, 1024)
