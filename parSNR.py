@@ -73,7 +73,7 @@ if not pool.is_master():
 	pool.wait()
 	sys.exit(0)
 
-powspecs = pool.map(toPowspec, image_range)
+powspecs = np.array(pool.map(toPowspec, image_range))
 print(powspecs.size)
 pool.close()
 
