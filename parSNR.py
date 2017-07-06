@@ -44,19 +44,17 @@ def PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50):
     powspec = powspec[last_nan + 1:]
     return ells, powspec
 
-def SNR(powerspecs):
+def SNR(powerspecs, covar):
     #Calculate Signal-to-Noise ratio given a set of powerspectra 
     
-    powermean = np.mat(np.mean(powerspecs, axis = 0))
-    covar = np.mat(np.cov(powerspecs, rowvar = 0))
-    
+    powermean = np.mat(np.mean(powerspecs, axis = 0))    
     SNRsquare = powermean * (covar.I * powermean.T)
     
     return np.sqrt(SNRsquare)
 
 
 def toPowspec(image_num):
-	print(image_num)
+	#print(image_num)
 	image = fits.open('/tigress/jialiu/CMBL_maps_46cosmo/Om0.296_Ol0.704_w-1.000_si0.786/WLconv_z1100.00_' + '{:04d}'.format(image_num) + 'r.fits')[0].data.astype(float)
 	image = scipy.ndimage.filters.gaussian_filter(image, 9.75)
 	F = fftpack.fftshift(fftpack.fft2(image))
@@ -65,7 +63,6 @@ def toPowspec(image_num):
 	return powspec
 
 image_range = np.arange(1, 1025)
-print(image_range.size)
 
 from emcee.utils import MPIPool
 pool = MPIPool()
@@ -74,8 +71,9 @@ if not pool.is_master():
 	sys.exit(0)
 
 powspecs = np.array(pool.map(toPowspec, image_range))
-print(powspecs.size)
 pool.close()
 
-print(SNR(powspecs))
+covar = np.mat(np.cov(powspecs, rowvar = 0))
+print(covar)
+print(SNR(powspecs, covar))
 
