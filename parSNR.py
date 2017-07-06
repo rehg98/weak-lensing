@@ -65,6 +65,7 @@ def toPowspec(image_num):
 	return powspec
 
 image_range = np.arange(1, 1025)
+print(image_range.size)
 
 from emcee.utils import MPIPool
 pool = MPIPool()
@@ -73,6 +74,7 @@ if not pool.is_master():
 	sys.exit(0)
 
 powspecs = pool.map(toPowspec, image_range)
+print(powspecs.size)
 pool.close()
 
 print(SNR(powspecs))
