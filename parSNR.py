@@ -56,7 +56,7 @@ def SNR(powerspecs):
 
 
 def toPowspec(image_num):
- 
+	print(image_num)
 	image = fits.open('/tigress/jialiu/CMBL_maps_46cosmo/Om0.296_Ol0.704_w-1.000_si0.786/WLconv_z1100.00_' + '{:04d}'.format(image_num) + 'r.fits')[0].data.astype(float)
 	image = scipy.ndimage.filters.gaussian_filter(image, 9.75)
 	F = fftpack.fftshift(fftpack.fft2(image))
