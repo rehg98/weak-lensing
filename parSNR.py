@@ -52,6 +52,13 @@ def SNR(powerspecs, covar):
     
     return np.sqrt(SNRsquare)
 
+def corr_mat(covar):
+    #Calculate the correlation matrix
+    
+    diag_sqrt = np.sqrt(np.diag(covar))
+    X, Y = np.meshgrid(diag_sqrt, diag_sqrt)
+    return covar / (X*Y)
+
 
 def toPowspec(image_num):
 	#print(image_num)
@@ -74,6 +81,9 @@ powspecs = np.array(pool.map(toPowspec, image_range))
 pool.close()
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
-print(covar)
+correl = corr_mat(covar)
+
+print(covar + "\n")
+print(correl + "\n")
 print(SNR(powspecs, covar))
 
