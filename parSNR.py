@@ -2,6 +2,7 @@ from astropy.io import fits
 import numpy as np
 import scipy.ndimage
 from scipy import fftpack
+import matplotlib.pyplot as plt
 import sys
 
 def power1D(image, num_bins):
@@ -67,9 +68,9 @@ def toPowspec(image_num):
 	F = fftpack.fftshift(fftpack.fft2(image))
 	psd2D = np.abs(F)**2
 	ells, powspec = PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50)
-    plt.plot(ells, powspec)
 
 	return powspec
+
 
 image_range = np.arange(1, 1025)
 
@@ -82,7 +83,11 @@ if not pool.is_master():
 powspecs = np.array(pool.map(toPowspec, image_range))
 pool.close()
 
-plt.show() 
+fig = plt.figure()
+ax = plt.subplot(111)
+for p in powspecs:
+	ax.plot(p)
+fig.savefig("plot.png")
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
 correl = corr_mat(covar)
