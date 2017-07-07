@@ -83,7 +83,7 @@ pool.close()
 covar = np.mat(np.cov(powspecs, rowvar = 0))
 correl = corr_mat(covar)
 
-print(covar + "\n")
-print(correl + "\n")
+print(covar)
+print(correl)
 print(SNR(powspecs, covar))
 
