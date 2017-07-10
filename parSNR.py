@@ -51,7 +51,7 @@ def SNR(powerspecs, covar):
     powermean = np.mat(np.mean(powerspecs, axis = 0))    
     SNRsquare = powermean * (covar.I * powermean.T)
     
-    return np.sqrt(SNRsquare)
+    return np.sqrt(SNRsquare), powermean
 
 def corr_mat(covar):
     #Calculate the correlation matrix
@@ -83,16 +83,17 @@ if not pool.is_master():
 powspecs = np.array(pool.map(toPowspec, image_range))
 pool.close()
 
-fig = plt.figure()
-ax = plt.subplot(111)
-for p in powspecs:
-	ax.plot(p)
-fig.savefig("plot.png")
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
 correl = corr_mat(covar)
 
 print(covar)
 print(correl)
-print(SNR(powspecs, covar))
 
+s2r, powermean = SNR(powspecs, covar)
+print(s2r)
+
+fig = plt.figure()
+ax = plt.subplot(111)
+plt.plot(powermean)
+fig.savefig("plot.png")
