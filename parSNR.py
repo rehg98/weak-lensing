@@ -48,8 +48,9 @@ def PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50):
 def SNR(powerspecs, covar):
     #Calculate Signal-to-Noise ratio given a set of powerspectra 
     
-    powermean = np.mat(np.mean(powerspecs, axis = 0))    
-    SNRsquare = powermean * (covar.I * powermean.T)
+    powermean = np.mean(powerspecs, axis = 0) 
+    powermeanmat = np.mat(powermean)    
+    SNRsquare = powermeanmat * (covar.I * powermeanmat.T)
     
     return np.sqrt(SNRsquare), powermean
 
@@ -87,14 +88,14 @@ pool.close()
 covar = np.mat(np.cov(powspecs, rowvar = 0))
 correl = corr_mat(covar)
 
-print(covar)
-print(correl)
+#print(covar)
+#print(correl)
 
 s2r, powermean = SNR(powspecs, covar)
-print(s2r)
+#print(s2r)
+print(powermean)
 
 fig = plt.figure()
-ax = plt.subplot(111)
 plt.plot(powermean)
-plt.show()
 fig.savefig("plot.png")
+#plt.show()
