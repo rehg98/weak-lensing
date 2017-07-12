@@ -95,7 +95,12 @@ s2r, powermean = SNR(powspecs, covar)
 #print(s2r)
 print(powermean)
 
-fig = plt.figure()
+fig1 = plt.figure()
 plt.plot(powermean)
-fig.savefig("plot.png")
-#plt.show()
+fig1.savefig("powermean.png")
+
+
+fig2 = plt.figure()
+for p in powspecs:
+	plt.plot(p)
+fig2.savefig("powerspecs.png")
