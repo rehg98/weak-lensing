@@ -1,110 +1,54 @@
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())
-parSNR.py:28: RuntimeWarning: invalid value encountered in true_divide
+parSNR.py:30: RuntimeWarning: invalid value encountered in true_divide
   radial_prof = bin_totals/bin_weights[1:]
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/__init__.py:841: UserWarning: Found matplotlib configuration in ~/.matplotlib/. To conform with the XDG base directory standard, this configuration location has been deprecated on Linux, and the new location is now /home/rgolant/.config/matplotlib/. Please move your configuration there to ensure that matplotlib will continue to find it in the future.
-  _get_xdg_config_dir())

@@ -2,6 +2,8 @@ from astropy.io import fits
 import numpy as np
 import scipy.ndimage
 from scipy import fftpack
+#import matplotlib as mpl
+#mpl.use('Agg')
 import matplotlib.pyplot as plt
 import sys
 
@@ -86,21 +88,24 @@ pool.close()
 
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
-correl = corr_mat(covar)
+#print("Covariance Matrix: " + covar + "\n")
+plt.imsave("covar.png", np.array(covar), cmap = 'hot')
 
-#print(covar)
-#print(correl)
+
+correl = corr_mat(covar)
+#print("Correlation Matrix: " + correl + "\n")
+plt.imsave("corrmat.png", np.array(correl), cmap = 'hot')
 
 s2r, powermean = SNR(powspecs, covar)
-#print(s2r)
-print(powermean)
+#print("Signal-to-Noise ratio: " + s2r)
 
-fig1 = plt.figure()
+fig3 = plt.figure()
 plt.plot(powermean)
-fig1.savefig("powermean.png")
+plt.title("Mean Power Spectrum")
+fig3.savefig("powermean.png")
 
-
-fig2 = plt.figure()
+fig4 = plt.figure()
 for p in powspecs:
 	plt.plot(p)
-fig2.savefig("powerspecs.png")
+plt.title("All Power Specta")
+fig4.savefig("powerspecs.png")
