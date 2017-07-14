@@ -88,26 +88,33 @@ if not pool.is_master():
 powspecs = np.array(pool.map(toPowspec, image_range))
 pool.close()
 
+np.set_printoptions(threshold = np.nan, linewidth = 120)
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
-#print("Covariance Matrix: " + covar + "\n")
-plt.imsave("covar.png", np.array(covar), cmap = 'hot')
+print("Covariance Matrix: ")
+print(covar)
+#plt.set_size_inches(10, 10)
+plt.imsave("covar.png", np.array(covar), cmap = 'jet', dpi = 100)
 
 
 correl = corr_mat(covar)
-#print("Correlation Matrix: " + correl + "\n")
+print("\nCorrelation Matrix: ")
+print(correl)
 plt.imsave("corrmat.png", np.array(correl), cmap = 'hot')
 
 s2r, powermean = SNR(powspecs, covar)
-#print("Signal-to-Noise ratio: " + s2r)
+print("\nSignal-to-Noise ratio: ")
+print(s2r)
 
 fig3 = plt.figure()
 plt.plot(powermean)
-plt.title("Mean Power Spectrum")
+plt.title("Mean Power Spectrum -- Normal Maps, Ungaussianized, 1 Arcminute Smoothing (7/13/17)")
+plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 fig3.savefig("powermean.png")
 
 fig4 = plt.figure()
 for p in powspecs:
 	plt.plot(p)
-plt.title("All Power Specta")
+plt.title("All Power Spectra -- Normal Maps, Ungaussianized, 1 Arcminute Smoothing (7/13/17)")
+plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 fig4.savefig("powerspecs.png")
