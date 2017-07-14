@@ -2,10 +2,12 @@ from astropy.io import fits
 import numpy as np
 import scipy.ndimage
 from scipy import fftpack
-#import matplotlib as mpl
-#mpl.use('Agg')
+import matplotlib as mpl
+mpl.use('Agg')
 import matplotlib.pyplot as plt
 import sys
+
+np.seterr(divide = 'ignore', invalid = 'ignore')
 
 def power1D(image, num_bins):
     
