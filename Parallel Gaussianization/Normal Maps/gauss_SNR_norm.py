@@ -121,8 +121,9 @@ if not pool.is_master():
 powspecs = np.array(pool.map(toPowspec, image_range))
 pool.close()
 
+print(powspecs)
 #from pprint import pprint
-np.set_printoptions(threshold = np.nan, linewidth = 120)
+#np.set_printoptions(threshold = np.nan, linewidth = 120)
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
 print("Covariance Matrix: ")
