@@ -6,6 +6,7 @@ import matplotlib as mpl
 mpl.use('Agg')
 import matplotlib.pyplot as plt
 import sys
+from PIL import Image
 
 np.seterr(divide = 'ignore', invalid = 'ignore')
 
@@ -93,14 +94,15 @@ np.set_printoptions(threshold = np.nan, linewidth = 120)
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
 print("Covariance Matrix: ")
-print(covar.tolist())
+print(covar)
 #plt.set_size_inches(10, 10)
-plt.imsave("covar.png", np.array(covar), cmap = 'hot', dpi = 100)
+#plt.imsave("covar.png", np.array(covar), cmap = 'hot', dpi = 100)
+Image.fromarray(covar).convert('RGB').resize((430, 430)).save('covtest.png')
 
 
 correl = corr_mat(covar)
 print("\nCorrelation Matrix: ")
-print(correl.tolist())
+print(correl)
 plt.imsave("corrmat.png", np.array(correl), cmap = 'hot')
 
 s2r, powermean = SNR(powspecs, covar)

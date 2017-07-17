@@ -127,14 +127,14 @@ print(powspecs)
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
 print("Covariance Matrix: ")
-print(covar.tolist())
+print(covar)
 #plt.set_size_inches(10, 10)
 plt.imsave("covar_gauss.png", np.array(covar), cmap = 'hot', dpi = 100)
 
 
 correl = corr_mat(covar)
 print("\nCorrelation Matrix: ")
-print(correl.tolist())
+print(correl)
 plt.imsave("corrmat_gauss.png", np.array(correl), cmap = 'hot')
 
 s2r, powermean = SNR(powspecs, covar)
