@@ -99,8 +99,14 @@ covar = np.mat(np.cov(powspecs, rowvar = 0))
 print("\nCovariance Matrix: ")
 print(covar)
 #plt.set_size_inches(10, 10)
-zcovar = scipy.ndimage.zoom(covar, 10)
-plt.imsave("covar.png", np.array(zcovar), cmap = 'hot', dpi = 100)
+#zcovar = scipy.ndimage.zoom(covar, 10)
+new_covar = np.zeros(np.array(covar.shape) * 10)
+
+for j in range(covar.shape[0]):
+	for k in range(covar.shape[1]):
+		new_covar[j * 10: (j+1) * 10, k * 10: (k+1) * 10] = covar[j, k]
+
+plt.imsave("covar.png", np.array(new_covar), cmap = 'hot')
 
 #pic = Image.fromarray(covar).convert('RGBA').resize((430, 430))
 #background = Image.new('RGBA', pic.size, (255, 255, 255))
