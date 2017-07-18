@@ -93,11 +93,7 @@ ells = results[0, 0]
 powspecs = np.array([r[1] for r in results])
 
 #from pprint import pprint
-np.set_printoptions(threshold = np.nan, linewidth = 120)
-
-s2r, powermean = SNR(powspecs, covar)
-print("Signal-to-Noise ratio: ")
-print(s2r)
+#np.set_printoptions(threshold = np.nan, linewidth = 120)
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
 print("\nCovariance Matrix: ")
@@ -116,6 +112,10 @@ correl = corr_mat(covar)
 print("\nCorrelation Matrix: ")
 print(correl)
 plt.imsave("corrmat.png", np.array(correl), cmap = 'hot')
+
+s2r, powermean = SNR(powspecs, covar)
+print("Signal-to-Noise ratio: ")
+print(s2r)
 
 
 fig3 = plt.figure()
