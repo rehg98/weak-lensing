@@ -75,7 +75,7 @@ def toPowspec(image_num):
     psd2D = np.abs(F)**2
     ells, powspec = PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50)
 
-    return powspec
+    return ells, powspec
 
 
 image_range = np.arange(1, 1025)
@@ -86,16 +86,24 @@ if not pool.is_master():
     pool.wait()
     sys.exit(0)
 
-powspecs = np.array(pool.map(toPowspec, image_range))
+results = np.array(pool.map(toPowspec, image_range))
 pool.close()
+
+ells = results[0, 0]
+powspecs = np.array([r[1] for r in results])
 
 #from pprint import pprint
 np.set_printoptions(threshold = np.nan, linewidth = 120)
 
+s2r, powermean = SNR(powspecs, covar)
+print("Signal-to-Noise ratio: ")
+print(s2r)
+
 covar = np.mat(np.cov(powspecs, rowvar = 0))
-print("Covariance Matrix: ")
+print("\nCovariance Matrix: ")
 print(covar)
 #plt.set_size_inches(10, 10)
+#plt.colorbar()
 plt.imsave("covar.png", np.array(covar), cmap = 'hot', dpi = 100)
 
 #pic = Image.fromarray(covar).convert('RGBA').resize((430, 430))
@@ -109,23 +117,20 @@ print("\nCorrelation Matrix: ")
 print(correl)
 plt.imsave("corrmat.png", np.array(correl), cmap = 'hot')
 
-s2r, powermean = SNR(powspecs, covar)
-print("\nSignal-to-Noise ratio: ")
-print(s2r)
 
 fig3 = plt.figure()
-plt.plot(powermean)
+plt.loglog(ells, powermean)
 plt.title("Mean Power Spectrum -- Normal Maps, Ungaussianized, 1 Arcminute Smoothing (7/13/17)")
 plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
-plt.xlabel("Bin Number")
+plt.xlabel(r'$\ell$', fontsize = 20)
 #plt.tight_layout()
 fig3.savefig("powermean.png", bbox_inches = 'tight')
 
 fig4 = plt.figure()
 for p in powspecs:
-    plt.plot(p)
+    plt.loglog(ells, p)
 plt.title("All Power Spectra -- Normal Maps, Ungaussianized, 1 Arcminute Smoothing (7/13/17)")
 plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
-plt.xlabel("Bin Number")
+plt.xlabel(r'$\ell$', fontsize = 20)
 #plt.tight_layout()
 fig4.savefig("powerspecs.png", bbox_inches = 'tight')
