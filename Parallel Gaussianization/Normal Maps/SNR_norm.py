@@ -97,7 +97,11 @@ print("Covariance Matrix: ")
 print(covar)
 #plt.set_size_inches(10, 10)
 #plt.imsave("covar.png", np.array(covar), cmap = 'hot', dpi = 100)
-Image.fromarray(covar).convert('RGB').resize((430, 430)).save('covtest.png')
+
+pic = Image.fromarray(covar).convert('RGBA').resize((430, 430))
+background = Image.new('RGBA', pic.size, (255, 255, 255))
+alpha_composite = Image.alpha_composite(background, pic)
+alpha_composite.save('covtest.png')
 
 
 correl = corr_mat(covar)
