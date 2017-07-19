@@ -98,7 +98,7 @@ def corr_mat(covar):
 
 def toPowspec(image_num):
     #print(image_num)
-    image = fits.open('/tigress/jialiu/CMBL_maps_46cosmo/noisy/reconMaps_Om0.296_Ol0.704_w-1.000_si0.786/WLconv_z1100.00_' + '{:04d}'.format(image_num) + 'r.fits')[0].data.astype(float)
+    image = np.load('/tigress/jialiu/CMBL_maps_46cosmo/noisy/reconMaps_Om0.296_Ol0.704_w-1.000_si0.786/recon_Om0.296_Ol0.704_w-1.000_si0.786_r' + '{:04d}'.format(image_num) + '.npy')[0].data.astype(float)
     image = scipy.ndimage.filters.gaussian_filter(image, 9.75)
     image = gaussianizepdf(image)
     F = fftpack.fftshift(fftpack.fft2(image))
@@ -108,7 +108,7 @@ def toPowspec(image_num):
     return ells, powspec
 
 
-image_range = np.arange(1, 1025)
+image_range = np.arange(1, 1000)
 
 from emcee.utils import MPIPool
 pool = MPIPool()
@@ -141,7 +141,7 @@ cax.patch.set_alpha(0)
 cax.set_frame_on(False)
 plt.colorbar(orientation = 'vertical')
 
-fig1.savefig("covar_gauss.png")
+fig1.savefig("noisycovar_gauss.png")
 
 
 correl = corr_mat(covar)
@@ -162,7 +162,7 @@ cax.patch.set_alpha(0)
 cax.set_frame_on(False)
 plt.colorbar(orientation = 'vertical')
 
-fig2.savefig("corrmat_gauss.png")
+fig2.savefig("noisycorrmat_gauss.png")
 
 
 
@@ -173,16 +173,16 @@ print(s2r)
 
 fig3 = plt.figure()
 plt.loglog(ells, powermean)
-plt.title("Mean Power Spectrum -- Normal Maps, Gaussianized, 1 Arcminute Smoothing (7/18/17)")
+plt.title("Mean Power Spectrum -- Noisy Maps, Gaussianized, 1 Arcminute Smoothing (7/19/17)")
 plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 plt.xlabel(r'$\ell$', fontsize = 20)
-fig3.savefig("powermean_gauss.png", bbox_inches = 'tight')
+fig3.savefig("noisypowermean_gauss.png", bbox_inches = 'tight')
 
 fig4 = plt.figure()
 for p in powspecs:
     plt.loglog(ells, p)
-plt.title("All Power Spectra -- Normal Maps, Gaussianized, 1 Arcminute Smoothing (7/18/17)")
+plt.title("All Power Spectra -- Noisy Maps, Gaussianized, 1 Arcminute Smoothing (7/19/17)")
 plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 plt.xlabel(r'$\ell$', fontsize = 20)
-fig4.savefig("powerspecs_gauss.png", bbox_inches = 'tight')
+fig4.savefig("noisypowerspecs_gauss.png", bbox_inches = 'tight')
 
