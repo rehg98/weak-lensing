@@ -107,7 +107,7 @@ def toPowspec(image_num):
     psd2D = np.abs(F)**2
     ells, powspec = PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50)
 
-    return powspec
+    return ells,  powspec
 
 
 image_range = np.arange(1, 1025)
