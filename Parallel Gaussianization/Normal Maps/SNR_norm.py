@@ -68,7 +68,6 @@ def corr_mat(covar):
 
 
 def toPowspec(image_num):
-    #print(image_num)
     image = fits.open('/tigress/jialiu/CMBL_maps_46cosmo/Om0.296_Ol0.704_w-1.000_si0.786/WLconv_z1100.00_' + '{:04d}'.format(image_num) + 'r.fits')[0].data.astype(float)
     image = scipy.ndimage.filters.gaussian_filter(image, 9.75)
     F = fftpack.fftshift(fftpack.fft2(image))
@@ -92,51 +91,49 @@ pool.close()
 ells = results[0, 0]
 powspecs = np.array([r[1] for r in results])
 
-#from pprint import pprint
-#np.set_printoptions(threshold = np.nan, linewidth = 120)
 
 covar = np.mat(np.cov(powspecs, rowvar = 0))
 print("\nCovariance Matrix: ")
 print(covar)
-#plt.set_size_inches(10, 10)
-#zcovar = scipy.ndimage.zoom(covar, 10)
 
-#new_covar = np.zeros(np.array(covar.shape) * 10)
+fig1 = plt.figure(figsize=(6, 3.4))
 
-#for j in range(covar.shape[0]):
-#	for k in range(covar.shape[1]):
-#		new_covar[j * 10: (j+1) * 10, k * 10: (k+1) * 10] = covar[j, k]
-
-#plt.imsave("covar.png", np.array(new_covar), cmap = 'hot')
-
-
-fig = plt.figure(figsize=(6, 3.4))
-
-ax = fig.add_subplot(111)
-ax.set_title('colorMap')
-plt.imshow(np.array(covar))
+ax = fig1.add_subplot(111)
+ax.set_title('Covariance Matrix Heat Map')
+plt.imshow(np.array(covar), cmap = 'hot')
 ax.set_aspect('equal')
 
-cax = fig.add_axes([0.12, 0.1, 0.78, 0.8])
+cax = fig1.add_axes([0.12, 0.1, 0.78, 0.8])
 cax.get_xaxis().set_visible(False)
 cax.get_yaxis().set_visible(False)
 cax.patch.set_alpha(0)
 cax.set_frame_on(False)
 plt.colorbar(orientation = 'vertical')
 
-fig.savefig("covtest.png")
-
-
-#pic = Image.fromarray(covar).convert('RGBA').resize((430, 430))
-#background = Image.new('RGBA', pic.size, (255, 255, 255))
-#alpha_composite = Image.alpha_composite(background, pic)
-#alpha_composite.save('covtest.png')
+fig1.savefig("covar.png")
 
 
 correl = corr_mat(covar)
 print("\nCorrelation Matrix: ")
 print(correl)
-plt.imsave("corrmat.png", np.array(correl), cmap = 'hot')
+
+fig2 = plt.figure(figsize=(6, 3.4))
+
+ax = fig2.add_subplot(111)
+ax.set_title('Correlation Matrix Heat Map')
+plt.imshow(np.array(correl), cmap = 'hot')
+ax.set_aspect('equal')
+
+cax = fig2.add_axes([0.12, 0.1, 0.78, 0.8])
+cax.get_xaxis().set_visible(False)
+cax.get_yaxis().set_visible(False)
+cax.patch.set_alpha(0)
+cax.set_frame_on(False)
+plt.colorbar(orientation = 'vertical')
+
+fig2.savefig("corrmat.png")
+
+
 
 s2r, powermean = SNR(powspecs, covar)
 print("\nSignal-to-Noise ratio: ")
@@ -148,7 +145,6 @@ plt.loglog(ells, powermean)
 plt.title("Mean Power Spectrum -- Normal Maps, Ungaussianized, 1 Arcminute Smoothing (7/18/17)")
 plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 plt.xlabel(r'$\ell$', fontsize = 20)
-#plt.tight_layout()
 fig3.savefig("powermean.png", bbox_inches = 'tight')
 
 fig4 = plt.figure()
@@ -157,5 +153,4 @@ for p in powspecs:
 plt.title("All Power Spectra -- Normal Maps, Ungaussianized, 1 Arcminute Smoothing (7/18/17)")
 plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 plt.xlabel(r'$\ell$', fontsize = 20)
-#plt.tight_layout()
 fig4.savefig("powerspecs.png", bbox_inches = 'tight')

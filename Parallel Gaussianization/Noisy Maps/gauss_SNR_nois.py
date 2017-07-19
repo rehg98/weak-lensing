@@ -22,7 +22,6 @@ def gaussianizepdf(denf,avgrepeats=True, sigmagauss = None,assumelognormal=True)
             sigmagauss = np.sqrt(np.log1p(np.var(denff)))
         else:
             sigmagauss = np.std(denff)
-    #print(sigmagauss)
 
     step = 1./lenny
 
@@ -31,7 +30,6 @@ def gaussianizepdf(denf,avgrepeats=True, sigmagauss = None,assumelognormal=True)
     # average together repeated elements
     if (avgrepeats):
         cuts = np.searchsorted(denff[o_f],np.unique(denff[o_f]))
-        #print(len(cuts),'cuts')
         for i in range(len(cuts)-1):
             gaussf[o_f[cuts[i]:cuts[i+1]]] = np.mean(gaussf[o_f[cuts[i]:cuts[i+1]]])
         # get the last one
@@ -100,14 +98,14 @@ def corr_mat(covar):
 
 def toPowspec(image_num):
     #print(image_num)
-    image = fits.open('/tigress/jialiu/CMBL_maps_46cosmo/Om0.296_Ol0.704_w-1.000_si0.786/WLconv_z1100.00_' + '{:04d}'.format(image_num) + 'r.fits')[0].data.astype(float)
+    image = fits.open('/tigress/jialiu/CMBL_maps_46cosmo/noisy/reconMaps_Om0.296_Ol0.704_w-1.000_si0.786/WLconv_z1100.00_' + '{:04d}'.format(image_num) + 'r.fits')[0].data.astype(float)
     image = scipy.ndimage.filters.gaussian_filter(image, 9.75)
     image = gaussianizepdf(image)
     F = fftpack.fftshift(fftpack.fft2(image))
     psd2D = np.abs(F)**2
     ells, powspec = PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50)
 
-    return powspec
+    return ells, powspec
 
 
 image_range = np.arange(1, 1025)
@@ -187,3 +185,4 @@ plt.title("All Power Spectra -- Normal Maps, Gaussianized, 1 Arcminute Smoothing
 plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 plt.xlabel(r'$\ell$', fontsize = 20)
 fig4.savefig("powerspecs_gauss.png", bbox_inches = 'tight')
+
