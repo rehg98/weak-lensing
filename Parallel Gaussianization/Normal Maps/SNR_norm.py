@@ -100,13 +100,32 @@ print("\nCovariance Matrix: ")
 print(covar)
 #plt.set_size_inches(10, 10)
 #zcovar = scipy.ndimage.zoom(covar, 10)
-new_covar = np.zeros(np.array(covar.shape) * 10)
 
-for j in range(covar.shape[0]):
-	for k in range(covar.shape[1]):
-		new_covar[j * 10: (j+1) * 10, k * 10: (k+1) * 10] = covar[j, k]
+#new_covar = np.zeros(np.array(covar.shape) * 10)
 
-plt.imsave("covar.png", np.array(new_covar), cmap = 'hot')
+#for j in range(covar.shape[0]):
+#	for k in range(covar.shape[1]):
+#		new_covar[j * 10: (j+1) * 10, k * 10: (k+1) * 10] = covar[j, k]
+
+#plt.imsave("covar.png", np.array(new_covar), cmap = 'hot')
+
+
+fig = plt.figure(figsize=(6, 3.4))
+
+ax = fig.add_subplot(111)
+ax.set_title('colorMap')
+plt.imshow(np.array(covar))
+ax.set_aspect('equal')
+
+cax = fig.add_axes([0.12, 0.1, 0.78, 0.8])
+cax.get_xaxis().set_visible(False)
+cax.get_yaxis().set_visible(False)
+cax.patch.set_alpha(0)
+cax.set_frame_on(False)
+plt.colorbar(orientation = 'vertical')
+
+fig.savefig("covtest.png")
+
 
 #pic = Image.fromarray(covar).convert('RGBA').resize((430, 430))
 #background = Image.new('RGBA', pic.size, (255, 255, 255))
