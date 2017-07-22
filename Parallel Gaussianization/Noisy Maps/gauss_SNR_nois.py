@@ -63,7 +63,7 @@ def power1D(image, num_bins):
     
     return bins[1:], radial_prof
 
-def PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50):
+def PowerSpectrum(psd2D, sizedeg = 12.25, size = 37, bins = 50):
     
     ells, psd1D = power1D(psd2D, num_bins = 50)
     
@@ -103,7 +103,7 @@ def toPowspec(image_num):
     image = gaussianizepdf(image)
     F = fftpack.fftshift(fftpack.fft2(image))
     psd2D = np.abs(F)**2
-    ells, powspec = PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50)
+    ells, powspec = PowerSpectrum(psd2D, sizedeg = 12.25, size = 37, bins = 50)
 
     return ells, powspec
 
