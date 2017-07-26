@@ -50,11 +50,14 @@ def PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50):
     powspec = powspec[last_nan + 1:]
     return ells, powspec
 
-def SNR(powerspecs, covar):
+def SNR(ells, powerspecs, covar):
     #Calculate Signal-to-Noise ratio given a set of powerspectra 
     
     powermean = np.mean(powerspecs, axis = 0) 
-    powermeanmat = np.mat(powermean)    
+
+    cut = np.argmax(ells >= 5000)
+    powermeanmat = np.mat(powermean[:cut])    
+    
     SNRsquare = powermeanmat * (covar.I * powermeanmat.T)
     
     return np.sqrt(SNRsquare), powermean
@@ -69,6 +72,7 @@ def corr_mat(covar):
 
 def toPowspec(image_num):
     image = fits.open('/tigress/jialiu/CMBL_maps_46cosmo/Om0.296_Ol0.704_w-1.000_si0.786/WLconv_z1100.00_' + '{:04d}'.format(image_num) + 'r.fits')[0].data.astype(float)
+    #1 Arcminute = 9.75; 2 Arc = 19.5; 5 Arc = 48.76; 10 Arc = 97.5
     image = scipy.ndimage.filters.gaussian_filter(image, 9.75)
     F = fftpack.fftshift(fftpack.fft2(image))
     psd2D = np.abs(F)**2
@@ -135,17 +139,26 @@ fig2.savefig("corrmat.png")
 
 
 
-s2r, powermean = SNR(powspecs, covar)
+s2r, powermean = SNR(ells, powspecs, covar)
 print("\nSignal-to-Noise ratio: ")
 print(s2r)
 
 
 fig3 = plt.figure()
-plt.loglog(ells, powermean)
-plt.title("Mean Power Spectrum -- Normal Maps, Ungaussianized, 1 Arcminute Smoothing (7/18/17)")
-plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
-plt.xlabel(r'$\ell$', fontsize = 20)
+ax1 = fig3.add_subplot(111)
+
+ax1.set_xscale("log", nonposx='clip')
+ax1.set_yscale("log", nonposy='clip')
+
+std_P = np.std(powspecs, axis = 0)
+plt.errorbar(ells, powermean, std_P)
+
+ax1.set_title("Mean Power Spectrum -- Normal Maps, Ungaussianized, 1 Arcminute Smoothing (7/18/17)")
+ax1.set_ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
+ax1.set_xlabel(r'$\ell$', fontsize = 20)
+ax1.set_xlim(1e2, 1e4)
 fig3.savefig("powermean.png", bbox_inches = 'tight')
+
 
 fig4 = plt.figure()
 for p in powspecs:
