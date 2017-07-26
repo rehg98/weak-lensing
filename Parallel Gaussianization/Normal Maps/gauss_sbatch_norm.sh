@@ -2,7 +2,7 @@
 #SBATCH -N 1
 #SBATCH -n 28
 #SBATCH --ntasks-per-node=28
-#SBATCH -t 1:00:00
+#SBATCH -t 2:00:00
 #SBATCH --output=gaussSNRout.out
 #SBATCH --error=gaussSNRerr.err
 #SBATCH --mail-type=all
