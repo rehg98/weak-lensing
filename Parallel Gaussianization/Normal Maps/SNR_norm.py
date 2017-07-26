@@ -94,7 +94,7 @@ powspecs = np.array([r[1] for r in results])
 powermean = np.mean(powspecs, axis = 0) 
 
 cut = np.argmax(ells >= 5000)
-tpowspecs = powspecs[:cut]
+tpowspecs = np.array([p[:cut] for p in powspecs])
 tpowermean = powermean[:cut]
 
 covar = np.mat(np.cov(tpowspecs, rowvar = 0))
