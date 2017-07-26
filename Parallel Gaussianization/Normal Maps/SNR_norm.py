@@ -50,17 +50,14 @@ def PowerSpectrum(psd2D, sizedeg = 12.25, size = 2048, bins = 50):
     powspec = powspec[last_nan + 1:]
     return ells, powspec
 
-def SNR(ells, powerspecs, covar):
+def SNR(powermean, covar):
     #Calculate Signal-to-Noise ratio given a set of powerspectra 
-    
-    powermean = np.mean(powerspecs, axis = 0) 
 
-    cut = np.argmax(ells >= 5000)
-    powermeanmat = np.mat(powermean[:cut])    
-    
+    powermeanmat = np.mat(powermean)    
+
     SNRsquare = powermeanmat * (covar.I * powermeanmat.T)
     
-    return np.sqrt(SNRsquare), powermean
+    return np.sqrt(SNRsquare)
 
 def corr_mat(covar):
     #Calculate the correlation matrix
@@ -94,9 +91,13 @@ pool.close()
 
 ells = results[0, 0]
 powspecs = np.array([r[1] for r in results])
+powermean = np.mean(powspecs, axis = 0) 
 
+cut = np.argmax(ells >= 5000)
+tpowspecs = powspecs[:cut]
+tpowermean = powermean[:cut]
 
-covar = np.mat(np.cov(powspecs, rowvar = 0))
+covar = np.mat(np.cov(tpowspecs, rowvar = 0))
 print("\nCovariance Matrix: ")
 print(covar)
 
@@ -139,7 +140,7 @@ fig2.savefig("corrmat.png")
 
 
 
-s2r, powermean = SNR(ells, powspecs, covar)
+s2r = SNR(tpowermean, covar)
 print("\nSignal-to-Noise ratio: ")
 print(s2r)
 
