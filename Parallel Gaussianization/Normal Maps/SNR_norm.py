@@ -125,6 +125,7 @@ tpowermean_5 = powermean_5[:cut]
 tpowspecs_10 = np.array([p[:cut] for p in powspecs_10])
 tpowermean_10 = powermean_10[:cut]
 
+covar = np.mat(np.cov(powspecs_1, rowvar = 0))
 covar_1 = np.mat(np.cov(tpowspecs_1, rowvar = 0))
 covar_2 = np.mat(np.cov(tpowspecs_2, rowvar = 0))
 covar_5 = np.mat(np.cov(tpowspecs_5, rowvar = 0))
@@ -149,25 +150,25 @@ covar_10 = np.mat(np.cov(tpowspecs_10, rowvar = 0))
 #fig1.savefig("covar.png")
 #
 #
-#correl = corr_mat(covar)
+correl = corr_mat(covar)
 #print("\nCorrelation Matrix: ")
 #print(correl)
 #
-#fig2 = plt.figure(figsize=(6, 3.4))
-#
-#ax = fig2.add_subplot(111)
-#ax.set_title('Correlation Matrix Heat Map')
-#plt.imshow(np.array(correl), cmap = 'hot')
-#ax.set_aspect('equal')
-#
-#cax = fig2.add_axes([0.12, 0.1, 0.78, 0.8])
-#cax.get_xaxis().set_visible(False)
-#cax.get_yaxis().set_visible(False)
-#cax.patch.set_alpha(0)
-#cax.set_frame_on(False)
-#plt.colorbar(orientation = 'vertical')
-#
-#fig2.savefig("corrmat.png")
+fig2 = plt.figure(figsize=(6, 3.4))
+
+ax = fig2.add_subplot(111)
+ax.set_title('Correlation Matrix Heat Map - Noiseless, Ungaussianized')
+plt.imshow(np.array(correl), cmap = 'hot')
+ax.set_aspect('equal')
+
+cax = fig2.add_axes([0.12, 0.1, 0.78, 0.8])
+cax.get_xaxis().set_visible(False)
+cax.get_yaxis().set_visible(False)
+cax.patch.set_alpha(0)
+cax.set_frame_on(False)
+plt.colorbar(orientation = 'vertical')
+
+fig2.savefig("corrmat.png")
 
 
 
