@@ -98,7 +98,7 @@ def corr_mat(covar):
 
 def toPowspec(image_num):
     #print(image_num)
-    image = np.load('/tigress/jialiu/CMBL_maps_46cosmo/noisy/reconMaps_Om0.296_Ol0.704_w-1.000_si0.786/recon_Om0.296_Ol0.704_w-1.000_si0.786_r' + '{:04d}'.format(image_num) + '.npy')
+    image = np.load('/tigress/jialiu/CMBL_maps_46cosmo/noisy/reconMaps_Om0.296_Ol0.704_w-1.000_si0.786/recon_filtered_Om0.296_Ol0.704_w-1.000_si0.786_r' + '{:04d}'.format(image_num) + '.npy')
     #image = scipy.ndimage.filters.gaussian_filter(image, 9.75)
     #image = gaussianizepdf(image)
     F = fftpack.fftshift(fftpack.fft2(image))
@@ -141,7 +141,7 @@ cax.patch.set_alpha(0)
 cax.set_frame_on(False)
 plt.colorbar(orientation = 'vertical')
 
-fig1.savefig("noisycovar.png")
+fig1.savefig("fnoisycovar.png")
 
 
 correl = corr_mat(covar)
@@ -151,7 +151,7 @@ print(correl)
 fig2 = plt.figure(figsize=(6, 3.4))
 
 ax = fig2.add_subplot(111)
-ax.set_title('Correlation Matrix Heat Map - Noisy (Unfiltered), Ungaussianized')
+ax.set_title('Correlation Matrix Heat Map - Noisy (Filtered), Ungaussianized')
 plt.imshow(np.array(correl), cmap = 'hot')
 ax.set_aspect('equal')
 
@@ -162,7 +162,7 @@ cax.patch.set_alpha(0)
 cax.set_frame_on(False)
 plt.colorbar(orientation = 'vertical')
 
-fig2.savefig("noisycorrmat.png")
+fig2.savefig("fnoisycorrmat.png")
 
 
 
@@ -181,19 +181,19 @@ ax1.set_yscale("log", nonposy='clip')
 std_P = np.std(powspecs, axis = 0)
 plt.errorbar(ells, powermean, std_P)
 
-ax1.set_title("Mean Power Spectrum -- Noisy Maps (Unfiltered), Ungaussianized, Unsmoothed (7/27/17)")
+ax1.set_title("Mean Power Spectrum -- Noisy Maps (Filtered), Ungaussianized, Unsmoothed (7/27/17)")
 ax1.set_ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 ax1.set_xlabel(r'$\ell$', fontsize = 20)
 ax1.set_xlim(1e2, 1e4)
-fig3.savefig("noisypowermean.png", bbox_inches = 'tight')
+fig3.savefig("fnoisypowermean.png", bbox_inches = 'tight')
 
 
 
 fig4 = plt.figure()
 for p in powspecs:
     plt.loglog(ells, p)
-plt.title("All Power Spectra -- Noisy Maps (Unfiltered), Ungaussianized, Unsmoothed (7/27/17)")
+plt.title("All Power Spectra -- Noisy Maps (Filtered), Ungaussianized, Unsmoothed (7/27/17)")
 plt.ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 plt.xlabel(r'$\ell$', fontsize = 20)
-fig4.savefig("noisypowerspecs.png", bbox_inches = 'tight')
+fig4.savefig("fnoisypowerspecs.png", bbox_inches = 'tight')
 
