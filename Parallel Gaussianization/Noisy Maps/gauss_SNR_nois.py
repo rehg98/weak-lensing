@@ -100,7 +100,7 @@ def toPowspec(image_num):
     #print(image_num)
     image = np.load('/tigress/jialiu/CMBL_maps_46cosmo/noisy/reconMaps_Om0.296_Ol0.704_w-1.000_si0.786/recon_Om0.296_Ol0.704_w-1.000_si0.786_r' + '{:04d}'.format(image_num) + '.npy')
     #image = scipy.ndimage.filters.gaussian_filter(image, 9.75)
-    image = gaussianizepdf(image)
+    #image = gaussianizepdf(image)
     F = fftpack.fftshift(fftpack.fft2(image))
     psd2D = np.abs(F)**2
     ells, powspec = PowerSpectrum(psd2D, sizedeg = 12.25, size = 37, bins = 50)

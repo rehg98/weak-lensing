@@ -1,0 +1,3 @@
+srun: Job step aborted: Waiting up to 47 seconds for job step to finish.
+slurmstepd: error: *** JOB 88824 ON perseus-r5c2n14 CANCELLED AT 2017-07-27T00:14:12 ***
+slurmstepd: error: *** STEP 88824.0 ON perseus-r5c2n14 CANCELLED AT 2017-07-27T00:14:12 ***
