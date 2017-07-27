@@ -158,7 +158,7 @@ fig2 = plt.figure(figsize=(6, 3.4))
 
 ax = fig2.add_subplot(111)
 ax.set_title('Correlation Matrix Heat Map - Noiseless, Ungaussianized')
-plt.imshow(np.array(correl), cmap = 'hot', vmin = -0.7, vmax = 1.0)
+plt.imshow(np.array(correl), cmap = 'hot')#, vmin = -0.7, vmax = 1.0)
 ax.set_aspect('equal')
 
 cax = fig2.add_axes([0.12, 0.1, 0.78, 0.8])
