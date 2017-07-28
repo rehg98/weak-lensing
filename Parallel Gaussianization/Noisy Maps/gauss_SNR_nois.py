@@ -171,10 +171,10 @@ correlgauss = corr_mat(covargauss)
 
 #fig2.savefig("noisycorrmat_gauss.png")
 
-fig2, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize = (10, 10))
+fig2, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize = (15, 5))
 axlist = [ax1, ax2]
 
-fig2.suptitle("Fig. 10: Correlation Matrix Heat Maps - Unfiltered Noisy Maps, No Smoothing", y = 0.65, fontsize = "20")
+fig2.suptitle("Fig. 10: Correlation Matrix Heat Maps - Unfiltered Noisy Maps, No Smoothing", y = 0.67, fontsize = "20")
 first = ax1.imshow(np.array(correl), cmap = 'hot', vmin = -0.025, vmax = 1.0)
 ax1.set_title('Ungaussianized Data', fontsize = "15")
 
