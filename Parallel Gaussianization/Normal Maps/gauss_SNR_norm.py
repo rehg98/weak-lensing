@@ -218,19 +218,19 @@ correlgauss = corr_mat(covargauss)
 
 
 
-fig2, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize = (20, 20))
+fig2, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize = (8, 4))
 axlist = [ax1, ax2]
 
-fig2.suptitle("Fig. 9: Correlation Matrix Heat Maps - Noiseless Maps, 1 Arcminute Smoothing", y = 0.65, fontsize = "20")
+fig2.suptitle("Fig. 9: Correlation Matrix Heat Maps - Noiseless Maps, 1 Arcminute Smoothing", fontsize = "17")
 first = ax1.imshow(np.array(correl), cmap = 'hot', vmin = -0.07, vmax = 1.0)
-ax1.set_title('Ungaussianized Data', fontsize = "15")
+ax1.set_title('Ungaussianized Data', fontsize = "12")
 
 ax2.imshow(np.array(correlgauss), cmap = 'hot', vmin = -0.07, vmax = 1.0)
-ax2.set_title('Gaussianized Data', fontsize = "15")
+ax2.set_title('Gaussianized Data', fontsize = "12")
 
 
-fig2.colorbar(first, ax=axlist, fraction=0.015)
-fig2.savefig("corrmat_allnoiseless.png")
+fig2.colorbar(first, ax=axlist, fraction=0.03)
+fig2.savefig("corrmat_allnoiseless.png", bbox_inches = "tight")
 
 
 
@@ -263,7 +263,7 @@ ax1.set_ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 ax1.set_xlabel(r'$\ell$', fontsize = 20)
 ax1.set_xlim(1e2, 1e4)
 
-fig3.legend(frameon = 0, fontsize = 10)
+plt.legend(frameon = 0, fontsize = 10)
 fig3.savefig("powermean_allnoiseless.png", bbox_inches = 'tight')
 
 
