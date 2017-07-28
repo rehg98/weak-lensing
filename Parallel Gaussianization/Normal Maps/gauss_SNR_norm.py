@@ -107,13 +107,15 @@ def toPowspec(image_num):
    # image_5 = scipy.ndimage.filters.gaussian_filter(image, 48.76)
    # image_10 = scipy.ndimage.filters.gaussian_filter(image, 97.5)
    
-    image_1 = gaussianizepdf(image_1)
+    image_1gauss = gaussianizepdf(image_1)
    # image_2 = gaussianizepdf(image_2)
    # image_5 = gaussianizepdf(image_5)
    # image_10 = gaussianizepdf(image_10)
 
     F_1 = fftpack.fftshift(fftpack.fft2(image_1))
     psd2D_1 = np.abs(F_1)**2
+    F_1gauss = fftpack.fftshift(fftpack.fft2(image_1gauss))
+    psd2D_1gauss = np.abs(F_1gauss)**2
    # F_2 = fftpack.fftshift(fftpack.fft2(image_2))
    # psd2D_2 = np.abs(F_2)**2
    # F_5 = fftpack.fftshift(fftpack.fft2(image_5))
@@ -122,11 +124,12 @@ def toPowspec(image_num):
    # psd2D_10 = np.abs(F_10)**2
 
     ells, powspec_1 = PowerSpectrum(psd2D_1, sizedeg = 12.25, size = 2048, bins = 50)
+    ells, powspec_1gauss = PowerSpectrum(psd2D_1gauss, sizedeg = 12.25, size = 2048, bins = 50)
    # ells, powspec_2 = PowerSpectrum(psd2D_2, sizedeg = 12.25, size = 2048, bins = 50)
    # ells, powspec_5 = PowerSpectrum(psd2D_5, sizedeg = 12.25, size = 2048, bins = 50)
    # ells, powspec_10 = PowerSpectrum(psd2D_10, sizedeg = 12.25, size = 2048, bins = 50)
 
-    return ells, powspec_1#,  powspec_2, powspec_5, powspec_10
+    return ells, powspec_1, powspec_1gauss#,  powspec_2, powspec_5, powspec_10
 
 
 image_range = np.arange(1, 1025)
@@ -144,6 +147,8 @@ ells = results[0, 0]
 
 powspecs_1 = np.array([r[1] for r in results])
 powermean_1 = np.mean(powspecs_1, axis = 0) 
+powspecs_1gauss = np.array([r[2] for r in results])
+powermean_1gauss = np.mean(powspecs_1gauss, axis = 0)
 #powspecs_2 = np.array([r[1] for r in results])
 #powermean_2 = np.mean(powspecs_2, axis = 0) 
 #powspecs_5 = np.array([r[2] for r in results])
@@ -163,6 +168,8 @@ tpowermean_1 = powermean_1[:cut]
 #tpowermean_10 = powermean_10[:cut]
 
 covar = np.mat(np.cov(powspecs_1, rowvar = 0))
+covargauss = np.mat(np.cov(powspecs_1gauss, rowvar = 0))
+
 covar_1 = np.mat(np.cov(tpowspecs_1, rowvar = 0))
 #covar_2 = np.mat(np.cov(tpowspecs_2, rowvar = 0))
 #covar_5 = np.mat(np.cov(tpowspecs_5, rowvar = 0))
@@ -189,24 +196,44 @@ covar_1 = np.mat(np.cov(tpowspecs_1, rowvar = 0))
 
 
 correl = corr_mat(covar)
+correlgauss = corr_mat(covargauss)
 #print("\nCorrelation Matrix: ")
 #print(correl)
 
-fig2 = plt.figure(figsize=(6, 3.4))
+#fig2 = plt.figure(figsize=(6, 3.4))
 
-ax = fig2.add_subplot(111)
-ax.set_title('Correlation Matrix Heat Map - Noiseless, Gaussianized')
-plt.imshow(np.array(correl), cmap = 'hot', vmin = -0.07, vmax = 1.0)
-ax.set_aspect('equal')
+#ax = fig2.add_subplot(111)
+#ax.set_title('Correlation Matrix Heat Map - Noiseless, Gaussianized')
+#plt.imshow(np.array(correl), cmap = 'hot', vmin = -0.07, vmax = 1.0)
+#ax.set_aspect('equal')
 
-cax = fig2.add_axes([0.12, 0.1, 0.78, 0.8])
-cax.get_xaxis().set_visible(False)
-cax.get_yaxis().set_visible(False)
-cax.patch.set_alpha(0)
-cax.set_frame_on(False)
-plt.colorbar(orientation = 'vertical')
+#cax = fig2.add_axes([0.12, 0.1, 0.78, 0.8])
+#cax.get_xaxis().set_visible(False)
+#cax.get_yaxis().set_visible(False)
+#cax.patch.set_alpha(0)
+#cax.set_frame_on(False)
+#plt.colorbar(orientation = 'vertical')
 
-fig2.savefig("corrmat_gauss.png")
+#fig2.savefig("corrmat_gauss.png")
+
+
+
+fig2, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize = (20, 20))
+axlist = [ax1, ax2]
+
+fig2.suptitle("Fig. 9: Correlation Matrix Heat Maps - Noiseless Maps, 1 Arcminute Smoothing", y = 0.65, fontsize = "20")
+first = ax1.imshow(np.array(correl), cmap = 'hot', vmin = -0.07, vmax = 1.0)
+ax1.set_title('Ungaussianized Data', fontsize = "15")
+
+ax2.imshow(np.array(correlgauss), cmap = 'hot', vmin = -0.07, vmax = 1.0)
+ax2.set_title('Gaussianized Data', fontsize = "15")
+
+
+fig2.colorbar(first, ax=axlist, fraction=0.015)
+fig2.savefig("corrmat_allnoiseless.png")
+
+
+
 
 s2r_1 = SNR(tpowermean_1, covar_1)
 #s2r_2 = SNR(tpowermean_2, covar_2)
@@ -219,20 +246,25 @@ print(s2r_1)
 #print(s2r_10)
 
 
-#fig3 = plt.figure()
-#ax1 = fig3.add_subplot(111)
-#
-#ax1.set_xscale("log", nonposx='clip')
-#ax1.set_yscale("log", nonposy='clip')
-#
-#std_P = np.std(powspecs_1, axis = 0)
-#plt.errorbar(ells, powermean_1, std_P)
-#
-#ax1.set_title("Mean Power Spectrum -- Normal Maps, Gaussianized, 1 Arcminute Smoothing (7/18/17)")
-#ax1.set_ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
-#ax1.set_xlabel(r'$\ell$', fontsize = 20)
-#ax1.set_xlim(1e2, 1e4)
-#fig3.savefig("powermean_gauss.png", bbox_inches = 'tight')
+fig3 = plt.figure()
+ax1 = fig3.add_subplot(111)
+
+ax1.set_xscale("log", nonposx='clip')
+ax1.set_yscale("log", nonposy='clip')
+
+std_P = np.std(powspecs_1, axis = 0)
+plt.errorbar(ells, powermean_1, std_P, label = "Ungaussianized")
+
+std_Pgauss = np.std(powspecs_1gauss, axis = 0)
+plt.errorbar(ells, powermean_1gauss, std_Pgauss, label = "Gaussianized")
+
+ax1.set_title("Fig. 3: Mean Power Spectra - Noiseless Maps, 1 Arcminute Smoothing")
+ax1.set_ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
+ax1.set_xlabel(r'$\ell$', fontsize = 20)
+ax1.set_xlim(1e2, 1e4)
+
+fig3.legend(frameon = 0, fontsize = 10)
+fig3.savefig("powermean_allnoiseless.png", bbox_inches = 'tight')
 
 
 
