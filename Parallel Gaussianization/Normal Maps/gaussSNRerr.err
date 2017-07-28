@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "gauss_SNR_norm.py", line 266, in <module>
-    fig3.legend(frameon = 0, fontsize = 10)
-TypeError: legend() missing 2 required positional arguments: 'handles' and 'labels'
-srun: error: perseus-r5c1n10: task 0: Exited with exit code 1
-srun: Terminating job step 89117.0
