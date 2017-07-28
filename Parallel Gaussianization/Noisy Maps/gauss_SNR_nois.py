@@ -183,7 +183,7 @@ ax2.set_title('Gaussianized Data', fontsize = "12")
 
 
 fig2.colorbar(first, ax=axlist, fraction=0.03)
-plt.subplots_adjust(top = 0.5)
+#plt.subplots_adjust(top = 0.2)
 fig2.savefig("corrmat_allnoisy.png")
 
 
