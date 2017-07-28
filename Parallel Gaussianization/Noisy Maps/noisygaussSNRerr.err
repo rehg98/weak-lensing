@@ -1,2 +1,0 @@
-/usr/licensed/anaconda3/4.3.0/lib/python3.6/site-packages/matplotlib/figure.py:1742: UserWarning: This figure includes Axes that are not compatible with tight_layout, so its results might be incorrect.
-  warnings.warn("This figure includes Axes that are not "
