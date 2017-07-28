@@ -183,6 +183,7 @@ ax2.set_title('Gaussianized Data', fontsize = "15")
 
 
 fig2.colorbar(first, ax=axlist, fraction=0.03)
+fig2.tight_layout()
 fig2.savefig("corrmat_allnoisy.png")
 
 
