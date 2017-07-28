@@ -171,7 +171,7 @@ correlgauss = corr_mat(covargauss)
 
 #fig2.savefig("noisycorrmat_gauss.png")
 
-fig2, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize = (20, 20))
+fig2, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize = (10, 10))
 axlist = [ax1, ax2]
 
 fig2.suptitle("Fig. 10: Correlation Matrix Heat Maps - Unfiltered Noisy Maps, No Smoothing", y = 0.65, fontsize = "20")
@@ -213,7 +213,7 @@ ax1.set_ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
 ax1.set_xlabel(r'$\ell$', fontsize = 20)
 ax1.set_xlim(1e2, 1e4)
 
-fig3.legend(frameon = 0, fontsize = 10)
+plt.legend(frameon = 0, fontsize = 10)
 fig3.savefig("powermean_allnoisy.png", bbox_inches = 'tight')
 
 
