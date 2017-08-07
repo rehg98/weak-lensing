@@ -105,12 +105,12 @@ def toPowspec(image_num):
     image_1 = scipy.ndimage.filters.gaussian_filter(image, 9.75)
     image_2 = scipy.ndimage.filters.gaussian_filter(image, 19.5)
     image_5 = scipy.ndimage.filters.gaussian_filter(image, 48.76)
-    image_10 = scipy.ndimage.filters.gaussian_filter(image, 97.5)
+   # image_10 = scipy.ndimage.filters.gaussian_filter(image, 97.5)
    
     image_1gauss = gaussianizepdf(image_1)
     image_2 = gaussianizepdf(image_2)
     image_5 = gaussianizepdf(image_5)
-    image_10 = gaussianizepdf(image_10)
+   # image_10 = gaussianizepdf(image_10)
 
     F_1 = fftpack.fftshift(fftpack.fft2(image_1))
     psd2D_1 = np.abs(F_1)**2
@@ -120,16 +120,16 @@ def toPowspec(image_num):
     psd2D_2 = np.abs(F_2)**2
     F_5 = fftpack.fftshift(fftpack.fft2(image_5))
     psd2D_5 = np.abs(F_5)**2
-    F_10 = fftpack.fftshift(fftpack.fft2(image_10))
-    psd2D_10 = np.abs(F_10)**2
+    #F_10 = fftpack.fftshift(fftpack.fft2(image_10))
+    #psd2D_10 = np.abs(F_10)**2
 
     ells, powspec_1 = PowerSpectrum(psd2D_1, sizedeg = 12.25, size = 2048, bins = 50)
     ells, powspec_1gauss = PowerSpectrum(psd2D_1gauss, sizedeg = 12.25, size = 2048, bins = 50)
     ells, powspec_2 = PowerSpectrum(psd2D_2, sizedeg = 12.25, size = 2048, bins = 50)
     ells, powspec_5 = PowerSpectrum(psd2D_5, sizedeg = 12.25, size = 2048, bins = 50)
-    ells, powspec_10 = PowerSpectrum(psd2D_10, sizedeg = 12.25, size = 2048, bins = 50)
+    #ells, powspec_10 = PowerSpectrum(psd2D_10, sizedeg = 12.25, size = 2048, bins = 50)
 
-    return ells, powspec_1, powspec_1gauss, powspec_2, powspec_5, powspec_10
+    return ells, powspec_1, powspec_1gauss, powspec_2, powspec_5#, powspec_10
 
 
 image_range = np.arange(1, 1025)
@@ -153,8 +153,8 @@ powspecs_2 = np.array([r[3] for r in results])
 powermean_2 = np.mean(powspecs_2, axis = 0) 
 powspecs_5 = np.array([r[4] for r in results])
 powermean_5 = np.mean(powspecs_5, axis = 0) 
-powspecs_10 = np.array([r[5] for r in results])
-powermean_10 = np.mean(powspecs_10, axis = 0) 
+#powspecs_10 = np.array([r[5] for r in results])
+#powermean_10 = np.mean(powspecs_10, axis = 0) 
 
 cut = np.argmax(ells >= 3000)
 
@@ -164,8 +164,8 @@ tpowspecs_2 = np.array([p[:cut] for p in powspecs_2])
 tpowermean_2 = powermean_2[:cut]
 tpowspecs_5 = np.array([p[:cut] for p in powspecs_5])
 tpowermean_5 = powermean_5[:cut]
-tpowspecs_10 = np.array([p[:cut] for p in powspecs_10])
-tpowermean_10 = powermean_10[:cut]
+#tpowspecs_10 = np.array([p[:cut] for p in powspecs_10])
+#tpowermean_10 = powermean_10[:cut]
 
 covar = np.mat(np.cov(powspecs_1, rowvar = 0))
 covargauss = np.mat(np.cov(powspecs_1gauss, rowvar = 0))
@@ -173,7 +173,7 @@ covargauss = np.mat(np.cov(powspecs_1gauss, rowvar = 0))
 covar_1 = np.mat(np.cov(tpowspecs_1, rowvar = 0))
 covar_2 = np.mat(np.cov(tpowspecs_2, rowvar = 0))
 covar_5 = np.mat(np.cov(tpowspecs_5, rowvar = 0))
-covar_10 = np.mat(np.cov(tpowspecs_10, rowvar = 0))
+#covar_10 = np.mat(np.cov(tpowspecs_10, rowvar = 0))
 
 print("\nCovariance Matrix: ")
 print(covar)
@@ -221,13 +221,13 @@ fig2.savefig("galcorrmat_allnoiseless.png", bbox_inches = "tight")
 s2r_1 = SNR(tpowermean_1, covar_1)
 s2r_2 = SNR(tpowermean_2, covar_2)
 s2r_5 = SNR(tpowermean_5, covar_5)
-s2r_10 = SNR(tpowermean_10, covar_10)
+#s2r_10 = SNR(tpowermean_10, covar_10)
 
 print("\nSignal-to-Noise ratio: ")
 print(s2r_1)
 print(s2r_2)
 print(s2r_5)
-print(s2r_10)
+#print(s2r_10)
 
 
 fig3 = plt.figure()
