@@ -103,33 +103,33 @@ def toPowspec(image_num):
     image = fits.open('/tigress/rgolant/galaxy_lensing_maps/Om0.260_Ode0.740_w-1.000_wa0.000_si0.800/512b260/kappa/WLconv_z2.00_' + '{:04d}'.format(image_num) + 'r.fits')[0].data.astype(float)
     #1 Arcminute = 9.75; 2 Arc = 19.5; 5 Arc = 48.76; 10 Arc = 97.5
     image_1 = scipy.ndimage.filters.gaussian_filter(image, 9.75)
-    image_2 = scipy.ndimage.filters.gaussian_filter(image, 19.5)
-    image_5 = scipy.ndimage.filters.gaussian_filter(image, 48.76)
-   # image_10 = scipy.ndimage.filters.gaussian_filter(image, 97.5)
+    #image_2 = scipy.ndimage.filters.gaussian_filter(image, 19.5)
+    #image_5 = scipy.ndimage.filters.gaussian_filter(image, 48.76)
+    #image_10 = scipy.ndimage.filters.gaussian_filter(image, 97.5)
    
-    image_1gauss = gaussianizepdf(image_1)
-    image_2 = gaussianizepdf(image_2)
-    image_5 = gaussianizepdf(image_5)
-   # image_10 = gaussianizepdf(image_10)
+    image_1 = gaussianizepdf(image_1)
+    #image_2 = gaussianizepdf(image_2)
+    #image_5 = gaussianizepdf(image_5)
+    #image_10 = gaussianizepdf(image_10)
 
     F_1 = fftpack.fftshift(fftpack.fft2(image_1))
     psd2D_1 = np.abs(F_1)**2
-    F_1gauss = fftpack.fftshift(fftpack.fft2(image_1gauss))
-    psd2D_1gauss = np.abs(F_1gauss)**2
-    F_2 = fftpack.fftshift(fftpack.fft2(image_2))
-    psd2D_2 = np.abs(F_2)**2
-    F_5 = fftpack.fftshift(fftpack.fft2(image_5))
-    psd2D_5 = np.abs(F_5)**2
+   # F_1gauss = fftpack.fftshift(fftpack.fft2(image_1gauss))
+   # psd2D_1gauss = np.abs(F_1gauss)**2
+    #F_2 = fftpack.fftshift(fftpack.fft2(image_2))
+    #psd2D_2 = np.abs(F_2)**2
+    #F_5 = fftpack.fftshift(fftpack.fft2(image_5))
+    #psd2D_5 = np.abs(F_5)**2
     #F_10 = fftpack.fftshift(fftpack.fft2(image_10))
     #psd2D_10 = np.abs(F_10)**2
 
     ells, powspec_1 = PowerSpectrum(psd2D_1, sizedeg = 12.25, size = 2048, bins = 50)
-    ells, powspec_1gauss = PowerSpectrum(psd2D_1gauss, sizedeg = 12.25, size = 2048, bins = 50)
-    ells, powspec_2 = PowerSpectrum(psd2D_2, sizedeg = 12.25, size = 2048, bins = 50)
-    ells, powspec_5 = PowerSpectrum(psd2D_5, sizedeg = 12.25, size = 2048, bins = 50)
+    #ells, powspec_1gauss = PowerSpectrum(psd2D_1gauss, sizedeg = 12.25, size = 2048, bins = 50)
+    #ells, powspec_2 = PowerSpectrum(psd2D_2, sizedeg = 12.25, size = 2048, bins = 50)
+    #ells, powspec_5 = PowerSpectrum(psd2D_5, sizedeg = 12.25, size = 2048, bins = 50)
     #ells, powspec_10 = PowerSpectrum(psd2D_10, sizedeg = 12.25, size = 2048, bins = 50)
 
-    return ells, powspec_1, powspec_1gauss, powspec_2, powspec_5#, powspec_10
+    return ells, powspec_1#, powspec_2, powspec_5, powspec_10
 
 
 image_range = np.arange(1, 1025)
@@ -147,36 +147,36 @@ ells = results[0, 0]
 
 powspecs_1 = np.array([r[1] for r in results])
 powermean_1 = np.mean(powspecs_1, axis = 0) 
-powspecs_1gauss = np.array([r[2] for r in results])
-powermean_1gauss = np.mean(powspecs_1gauss, axis = 0)
-powspecs_2 = np.array([r[3] for r in results])
-powermean_2 = np.mean(powspecs_2, axis = 0) 
-powspecs_5 = np.array([r[4] for r in results])
-powermean_5 = np.mean(powspecs_5, axis = 0) 
-#powspecs_10 = np.array([r[5] for r in results])
+#powspecs_1gauss = np.array([r[2] for r in results])
+#powermean_1gauss = np.mean(powspecs_1gauss, axis = 0)
+#powspecs_2 = np.array([r[2] for r in results])
+#powermean_2 = np.mean(powspecs_2, axis = 0) 
+#powspecs_5 = np.array([r[3] for r in results])
+#powermean_5 = np.mean(powspecs_5, axis = 0) 
+#powspecs_10 = np.array([r[4] for r in results])
 #powermean_10 = np.mean(powspecs_10, axis = 0) 
 
-cut = np.argmax(ells >= 3000)
+cut = np.argmax(ells >= 5000)
 
 tpowspecs_1 = np.array([p[:cut] for p in powspecs_1])
 tpowermean_1 = powermean_1[:cut]
-tpowspecs_2 = np.array([p[:cut] for p in powspecs_2])
-tpowermean_2 = powermean_2[:cut]
-tpowspecs_5 = np.array([p[:cut] for p in powspecs_5])
-tpowermean_5 = powermean_5[:cut]
+#tpowspecs_2 = np.array([p[:cut] for p in powspecs_2])
+#tpowermean_2 = powermean_2[:cut]
+#tpowspecs_5 = np.array([p[:cut] for p in powspecs_5])
+#tpowermean_5 = powermean_5[:cut]
 #tpowspecs_10 = np.array([p[:cut] for p in powspecs_10])
 #tpowermean_10 = powermean_10[:cut]
 
-covar = np.mat(np.cov(powspecs_1, rowvar = 0))
-covargauss = np.mat(np.cov(powspecs_1gauss, rowvar = 0))
+#covar = np.mat(np.cov(powspecs_1, rowvar = 0))
+#covargauss = np.mat(np.cov(powspecs_1gauss, rowvar = 0))
 
 covar_1 = np.mat(np.cov(tpowspecs_1, rowvar = 0))
-covar_2 = np.mat(np.cov(tpowspecs_2, rowvar = 0))
-covar_5 = np.mat(np.cov(tpowspecs_5, rowvar = 0))
+#covar_2 = np.mat(np.cov(tpowspecs_2, rowvar = 0))
+#covar_5 = np.mat(np.cov(tpowspecs_5, rowvar = 0))
 #covar_10 = np.mat(np.cov(tpowspecs_10, rowvar = 0))
 
-print("\nCovariance Matrix: ")
-print(covar)
+#print("\nCovariance Matrix: ")
+#print(covar)
 
 #fig1 = plt.figure(figsize=(6, 3.4))
 
@@ -195,60 +195,60 @@ print(covar)
 #fig1.savefig("galcovar_gauss.png")
 
 
-correl = corr_mat(covar)
-correlgauss = corr_mat(covargauss)
-print("\nCorrelation Matrix: ")
-print(correl)
+#correl = corr_mat(covar)
+#correlgauss = corr_mat(covargauss)
+#print("\nCorrelation Matrix: ")
+#print(correl)
 
 
-fig2, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize = (8, 4))
-axlist = [ax1, ax2]
+#fig2, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize = (8, 4))
+#axlist = [ax1, ax2]
 
-fig2.suptitle("Fig. 4: Correlation Matrix Heat Maps - Noiseless Maps, 1 Arcminute Smoothing", fontsize = "17")
-first = ax1.imshow(np.array(correl), cmap = 'hot', vmin = -0.07, vmax = 1.0)
-ax1.set_title('Ungaussianized Data', fontsize = "12")
+#fig2.suptitle("Fig. 4: Correlation Matrix Heat Maps - Noiseless Maps, 1 Arcminute Smoothing", fontsize = "17")
+#first = ax1.imshow(np.array(correl), cmap = 'hot', vmin = -0.07, vmax = 1.0)
+#ax1.set_title('Ungaussianized Data', fontsize = "12")
 
-ax2.imshow(np.array(correlgauss), cmap = 'hot', vmin = -0.07, vmax = 1.0)
-ax2.set_title('Gaussianized Data', fontsize = "12")
+#ax2.imshow(np.array(correlgauss), cmap = 'hot', vmin = -0.07, vmax = 1.0)
+#ax2.set_title('Gaussianized Data', fontsize = "12")
 
 
-fig2.colorbar(first, ax=axlist, fraction=0.03)
-fig2.savefig("galcorrmat_allnoiseless.png", bbox_inches = "tight")
+#fig2.colorbar(first, ax=axlist, fraction=0.03)
+#fig2.savefig("galcorrmat_allnoiseless.png", bbox_inches = "tight")
 
 
 
 
 s2r_1 = SNR(tpowermean_1, covar_1)
-s2r_2 = SNR(tpowermean_2, covar_2)
-s2r_5 = SNR(tpowermean_5, covar_5)
+#s2r_2 = SNR(tpowermean_2, covar_2)
+#s2r_5 = SNR(tpowermean_5, covar_5)
 #s2r_10 = SNR(tpowermean_10, covar_10)
 
 print("\nSignal-to-Noise ratio: ")
 print(s2r_1)
-print(s2r_2)
-print(s2r_5)
+#print(s2r_2)
+#print(s2r_5)
 #print(s2r_10)
 
 
-fig3 = plt.figure()
-ax1 = fig3.add_subplot(111)
+#fig3 = plt.figure()
+#ax1 = fig3.add_subplot(111)
 
-ax1.set_xscale("log", nonposx='clip')
-ax1.set_yscale("log", nonposy='clip')
+#ax1.set_xscale("log", nonposx='clip')
+#ax1.set_yscale("log", nonposy='clip')
 
-std_P = np.std(powspecs_1, axis = 0)
-plt.errorbar(ells, powermean_1, std_P, label = "Ungaussianized")
+#std_P = np.std(powspecs_1, axis = 0)
+#plt.errorbar(ells, powermean_1, std_P, label = "Ungaussianized")
 
-std_Pgauss = np.std(powspecs_1gauss, axis = 0)
-plt.errorbar(ells, powermean_1gauss, std_Pgauss, label = "Gaussianized")
+#std_Pgauss = np.std(powspecs_1gauss, axis = 0)
+#plt.errorbar(ells, powermean_1gauss, std_Pgauss, label = "Gaussianized")
 
-ax1.set_title("Fig. 2: Mean Power Spectra - Noiseless Maps, 1 Arcminute Smoothing")
-ax1.set_ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
-ax1.set_xlabel(r'$\ell$', fontsize = 20)
-ax1.set_xlim(1e2, 1e4)
+#ax1.set_title("Fig. 2: Mean Power Spectra - Noiseless Maps, 1 Arcminute Smoothing")
+#ax1.set_ylabel(r'$\frac{\ell (\ell + 1) C_\ell}{2\pi}$', fontsize = 20)
+#ax1.set_xlabel(r'$\ell$', fontsize = 20)
+#ax1.set_xlim(1e2, 1e4)
 
-plt.legend(frameon = 0, fontsize = 10)
-fig3.savefig("galpowermean_allnoiseless.png", bbox_inches = 'tight')
+#plt.legend(frameon = 0, fontsize = 10)
+#fig3.savefig("galpowermean_allnoiseless.png", bbox_inches = 'tight')
 
 
 
